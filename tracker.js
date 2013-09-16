@@ -1,10 +1,11 @@
 // Extend local storage and page reload
 
-(function (window, $) {
+(function (window) {
 
 	var img,
 		trackInProgress = false,
-		queue = [];
+		queue = [],
+		errorTries = 5;
 
 	// Some random userID
 	window.userId = window.userId || parseInt(Math.random() * 10000, 10);
@@ -23,13 +24,14 @@
 	};
 
 	var requestTrackingImg = function() {
-		var url = '';
+		var url = 'test.jpg';
 
 		trackInProgress = true;
 
 		img = document.createElement('img');
 		
 		img.onload = function() {
+			console.log('load');
 			// Clear queue
 			queue = [];
 			// Reset flag
@@ -38,13 +40,22 @@
 		};
 		
 		img.onerror = function() {
-			// Reset flag
-			trackInProgress = false;
-			// Try again
-			requestTrackingImg();
-			// Some cleverer mechanism would prevent this from making many calls
+			if(errorTries) {
+				errorTries--;
+				console.log('error');
+				// Reset flag
+				trackInProgress = false;
+				// Try again
+				requestTrackingImg();
+			}
 		}
+
+		img.src = url;
 		
+		
+		
+		
+		window.testImg = img;
 	}	
 	
-})(window, jQuery);
+})(window);
