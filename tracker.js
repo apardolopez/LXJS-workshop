@@ -1,5 +1,6 @@
+// Extend local storage and page reload
 
-n (window, $) {
+(function (window, $) {
 
 	var img,
 		trackInProgress = false,
