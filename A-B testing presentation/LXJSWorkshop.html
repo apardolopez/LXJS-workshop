@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>A/B Testing Workshop</title>
+
+		<meta name="description" content="Introduction to A/B testing">
+		<meta name="author" content="Alejandro Pardo Lopez">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Introduction to A/B testing</h1>
+				</section>
+				
+				<section>
+					<h1>Who's this dude?</h1>
+					<br>
+					<h3>Alejandro Pardo Lopez</h3>
+					<br>
+					<ul>
+						<li>Client Side Developer @ Booking.com</li>
+						<li>@apardolopez</li>
+					</ul>
+				</section>
+				
+				
+
+				<section>
+					<section>
+						<h1>What is A/B testing?</h1>
+						
+						<p>Assign randomly your users into two or more groups, each one exposed to a different variant of the website</p>
+					</section>
+					<section>
+						<h2>Common A/B test</h2>
+						
+						<ul>
+							<li>2 variant test (Base and Variant)</li>
+							<li>Userbase split in 50% - 50%</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Examples</h2>
+					</section>
+					<section>
+						<img src="img/AB_test_form.png" />
+						<small>Source: http://unbounce.com/a-b-testing/shocking-results/</small>
+					</section>
+					<section>
+						<img src="img/AB_test_email_subject1.png" />
+						<img src="img/AB_test_email_subject2.png" />
+					</section>
+					<section>
+						<img src="img/AB_test_basic_example_left.png" />
+						<img src="img/AB_test_basic_example_right.png" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>What do we want to measure</h1>
+					</section>
+					<section>
+						<h2>Usual suspects</h2>
+						<ul>
+							<li>CTR (Click Through Rate)</li>
+							<li>Conversion: Successful sign up / purchase / click on CTA per visitor)</li>
+							<li>Others:
+								<ul>
+									<li>Clicks</li>
+									<li>Pageviews</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Other useful metrics</h2>
+						<ul>
+							<li>Performance (page load times, navigation times)</li>
+							<li>Backend performance (CPU usage, wallclock)</li>
+							<li>Errors</li>
+							<li>External impact (e.g. # of customer Care tickets)</li>
+						</ul>
+					
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Wait, there's more!</h1>
+					</section>
+					<section>
+						<h2>More than 2 variants</h2>
+						<ul>
+							<li> > 2 variants (famous Google's 40 shades of blue)</li>
+							<li>Experimental features to reduced group of users for early feedback</li>
+							<li>Potentially dangerous code</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Graceful degradation - Emergency switches</h2>
+						<ul>
+							<li>Disable lightactions</li>
+							<li>Reduce data shown to reduce queries to overloaded DB</li>
+							<li>Hide buttons that lead to pages in trouble (e.g. in another datacenter that is under pressure)</li>
+						</ul>
+					
+					</section>
+					<section>
+						<h2>A/A experiments</h2>
+						<li>No change</li>
+						<li>Used for validating the tracking framework and analysis report</li>
+					
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Interpreting results of A/B tests</h1>
+					</section>
+					<section>
+						<h2>Conclusive vs inconclusive results</h2>
+					</section>
+					<section>
+						<h2>Conclusive results</h2>
+						<p>We are confident that one of the variants is statistically significant</p>
+					</section>
+					<section>
+						<h2>Whut???!!!!</h2>
+						<img src="img/jackie_chan_whut.jpg"/>
+					</section>
+					<section>
+						<h2>In other words...</h2>
+					</section>
+					<section>
+						<p>We can confidently say which one is the winner (or loser)</p>
+					</section>
+					<section>
+						<img src="img/AB_test_results_amazon.png"/>
+						<small>Source: https://developer.amazon.com/sdk/ab-testing.html</small>
+					</section>
+					<section>
+						<h2>Inconclusive results (aka neutral)</h2>
+					</section>
+					<section>
+						<p>If there was an effect it was too small to be measured</p>
+					</section>
+					<section>
+						<h3>Secondary metrics FTW!!!</h3>
+						<ul>
+							<li>Secondary signups</li>
+							<li>Errors</li>
+							<li>Test is a refactor</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Trustworthy data</h1>
+						<p>"When running online experiments, getting numbers is easy; getting numbers you can trust is hard"</p>
+					</section>
+					<section>
+						<h2>Trustworthy data</h2>
+						<p>Without data you can trust, you cannot make a decision.</p>
+						<p>Basically, you know nothing about the results of your test</p>
+					</section>
+					<section>
+						<h2>Robots</h2>
+						<p>They can bias your results</p>
+						<ul>
+							<li>Visitor numbers will be inflated</li>
+							<li>Visitor numbers can be altered in just one variant, making distributions uneven</li>
+							<li>Conversion rates can me affected as well due to the increment in visitors</li>
+							<li>But also clicks! Some robots parse Javascript</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Interfering experiments</h2>
+						<p>Modifications on same features running at the same time can bias results</p>
+					</section>
+					<section>
+						<h2>Interfering experiments</h2>
+						<p>E.g. button color change and position change</p>
+					</section>
+					<section>
+						<img src="img/AB_interference_left.png" />
+						<img src="img/AB_interference_right.png" />
+					</section>
+					<section>
+						<h2>Tracking</h2>
+					</section>
+					<section>
+						<h2>Aka putting users in your experiment</h2>
+					</section>
+					<section>
+						<h2>Wrong Tracking === Useless data</h2>
+						<p>...and wasted time...</p>
+						<p>...and unmeasured impact on the site...</p>
+					</section>
+					<section>
+						<p>...and a hard time for the poor dev...</p>
+						<img src="img/headdesk.jpg" />
+					</section>
+					<section>
+						<h2>Tracking challenges</h2>
+					</section>
+					<section>
+						<h2>Assign users to variants randomly</h2>
+						<p>Distribution of visitors should match the expected split</p>
+					</section>
+					<section>
+						<h2>Avoid noise</h2>
+						<p>Track only people that are actually exposed to the change</p>
+						<p>Otherwise, spotting change in results is much harder, and exp has to run for longer</p>
+					</section>
+					<section>
+						<h2>Avoid noise</h2>
+						<p>e.g. Track everyone visiting the website, but the change is only on the product page</p>
+					</section>
+					<section>
+						<h2>Track all variants</h2>
+					</section>
+					<section>
+						<h2>Tracking based on JavaScript</h2>
+					</section>
+					<section>
+						<h2>Very powerful</h2>
+						<p>More precise tracking (e.g. tracing based on user interactions)</p>
+					</section>
+					<section>
+						<h2>But weaker too</h2>
+						<ul>
+							<li>Sensitive to JS errors</li>
+							<li>Cookie overrides by HTTP requests</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Some examples of A/B testing solutions</h1>
+					</section>
+					<section>
+						<h2>Google Content Experiments (aka Website Optimizer)</h2>
+						<p>Integration with Google analytics</p>
+						<p>Both server and client side solutions</p>
+						<small>Source: https://support.google.com/analytics/answer/1745147?hl=en-GB</small>
+					</section>
+					<section>
+						<h2>Optimizely</h2>
+						<p>One of the most popular frameworks</p>
+						<p>Unfortunately based on Javascript only</p>
+						<small>Source: https://support.google.com/analytics/answer/1745147?hl=en-GB</small>
+					</section>
+					<section>
+						<h2>Vanity</h2>
+						<p>Both server and client side solutions</p>
+						<small>Source: http://vanity.labnotes.org/</small>
+					</section>
+					<section>
+						<h2>Mailchimp</h2>
+						<p>Easily test email campaigns</p>
+						<small>Source: http://mailchimp.com/features/ab-testing/</small>
+					</section>
+
+				</section>
+				<section>
+					<section>
+						<h2>Ok dude, shut up and let's do some coding</h2>
+					</section>
+					<section>
+						<h2>Basic starting framework</h2>
+					</section>
+					<section>
+						<p>GITHUB LINK!</p>
+					</section>
+					<section>
+						<h2>Challenge #1</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Track users when they click on a simple link</li>
+							<li>Only the copy of the link changes</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Challenge #2</h2>
+					</section>
+					<section>
+						<ul>
+							<li>We are showing a button only to logged in users</li>
+							<li>window.LXJSWorkshop.user.isLoggedIn will be true if user is logged in</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Challenge #3</h2>
+					</section>
+					<section>
+						<ul>
+							<li>For users browsing the site in Portugal (window.LXJSWorkshop.user.country === 'PT')</li>
+							<li>We will have a stats JSON structure (window.LXJSWorkshop.stats)</li>
+							<li>We will display a table like section showing this data</li>
+						</ul>
+					</section>
+					<section>
+<pre><code data-trim>
+{
+	'beerConsumedInLitres' : 15,
+	'talksSeen'        : 4,
+	'hangoverIndex'        : 7.8
+}
+</code></pre>
+					</section>
+					<section>
+						<h2>Challenge #4</h2>
+					</section>
+					<section>
+						<section>
+							<h2>Extend basic framework with the ability to track when an element is visible</h2>
+						</section>
+					</section>
+					<section>
+						<h2>Challenge #5</h2>
+					</section>
+					<section>
+						<h2>Extend basic framework with localStorage</h2>
+					</section>
+					<section>
+						<ul>
+							<li>User navigates away, request might not be fulfilled (server down, browser not downloading img)</li>
+							<li>Keep data until we know it has been processed by backend</li>
+							<li>When do we have to store or retrieve the locally stored data?</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
