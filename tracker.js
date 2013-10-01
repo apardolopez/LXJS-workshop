@@ -20,7 +20,7 @@
 		defaultMaxErrorTries = 5,
 		errorTries = settings.maxTries ? settings.maxTries : defaultMaxErrorTries,
 		frameworkNamespace = trackingSettings.namespace ? trackingSettings.namespace : 'userExpTracking',
-		trackingImgUrl = trackingSettings.imgUrl ? trackingSettings.imgUrl : 'http://q-ec.bstatic.com/images/misc_images/citymab_MAB_-2601889_02.jpg';
+		trackingImgUrl = trackingSettings.imgUrl ? trackingSettings.imgUrl : 'http://q-ec.bstatic.com/images/misc_images/citymab_MAB_-2601889_02.jpg?t=' + (new Date()).getTime();
 
 	// Expose function that tracks users into our A/B test
 	window[frameworkNamespace] = {
